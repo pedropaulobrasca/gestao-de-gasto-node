@@ -46,7 +46,7 @@ class ExpenseController {
 
       const expenseCreated = await CreateExpense(expenseData);
 
-      res.status(201).json({ expense });
+      res.status(201).json({ expenseCreated });
     } catch (error) {
       res.status(500).json({ message: "Internal Server Error" });
     }
