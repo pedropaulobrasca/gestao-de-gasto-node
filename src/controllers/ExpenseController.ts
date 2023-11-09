@@ -6,9 +6,9 @@ import CreateExpense from "../services/expense/CreateExpense";
 class ExpenseController {
   async index(req: Request, res: Response) {
     try {
-      const { userClerkId } = req.body;
+      const { userClerkId } = req.query;
 
-      const expenses = GetAllExpensesByUserClerkId(userClerkId);
+      const expenses = await GetAllExpensesByUserClerkId(userClerkId as string);
 
       if (!expenses) {
         throw new Error("Expenses not found");
