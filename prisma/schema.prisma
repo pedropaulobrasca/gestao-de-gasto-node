@@ -17,6 +17,7 @@ model Expense {
   expense      String
   monthlyValue Float
   date         DateTime @default(now())
+  repeat       Boolean  @default(false)
   installments Int
   totalValue   Float
   description  String?
