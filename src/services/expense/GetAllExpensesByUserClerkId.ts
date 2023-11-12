@@ -9,22 +9,14 @@ export default async function GetAllExpensesByUserClerkId(
     },
   });
 
-  // Somar todos os valores totais e menais
-  const totalValue = expenses.reduce(
-    (acc: any, expense: { totalValue: any }) => {
-      acc += expense.totalValue;
-      return acc;
-    },
-    0
-  );
+  // Somar todos os valores totais e mensais, incluindo os que estao como repeatExpense true
+  const totalValue = expenses.reduce((total, expense) => {
+    return total + expense.totalValue;
+  }, 0);
 
-  const monthlyValue = expenses.reduce(
-    (acc: any, expense: { monthlyValue: any }) => {
-      acc += expense.monthlyValue;
-      return acc;
-    },
-    0
-  );
+  const monthlyValue = expenses.reduce((total, expense) => {
+    return total + expense.monthlyValue;
+  }, 0);
 
   return { expenses, totalValue, monthlyValue };
 }

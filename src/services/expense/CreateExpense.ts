@@ -8,6 +8,10 @@ export default async function CreateExpense(data: Expense): Promise<Expense> {
       throw new Error("User Clerk Id is required");
     }
 
+    if (data.repeatExpense && data.installments === 0) {
+      data.monthlyValue = data.totalValue;
+    }
+
     const createdExpense = await prisma.expense.create({
       data: {
         paid: data.paid,
