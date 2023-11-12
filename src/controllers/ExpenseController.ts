@@ -35,6 +35,7 @@ class ExpenseController {
         totalValue: req.body.totalValue,
         description: req.body.description,
         userClerkId: req.body.userClerkId,
+        repeatExpense: req.body.repeatExpense,
       };
 
       const expenseCreated = await CreateExpense(expenseData);

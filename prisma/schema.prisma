@@ -12,15 +12,15 @@ datasource db {
 }
 
 model Expense {
-  id           Int      @id @default(autoincrement())
-  paid         Boolean  @default(false)
-  expense      String
-  monthlyValue Float
-  date         DateTime @default(now())
-  repeat       Boolean  @default(false)
-  installments Int
-  totalValue   Float
-  description  String?
-  createdAt    DateTime @default(now())
-  userClerkId  String
+  id            Int      @id @default(autoincrement())
+  paid          Boolean  @default(false)
+  expense       String
+  monthlyValue  Float
+  date          DateTime @default(now())
+  repeatExpense Boolean  @default(false)
+  installments  Int
+  totalValue    Float
+  description   String?
+  createdAt     DateTime @default(now())
+  userClerkId   String
 }

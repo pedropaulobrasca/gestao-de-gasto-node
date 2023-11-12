@@ -9,6 +9,7 @@ export type Expense = {
   description?: string;
   createdAt?: Date;
   userClerkId?: string;
+  repeatExpense?: boolean;
 };
 
 export interface IExpense {
@@ -22,6 +23,7 @@ export interface IExpense {
   description?: string;
   createdAt?: Date;
   userClerkId?: string;
+  repeatExpense?: boolean;
 }
 
 export interface IUpdateExpense {
@@ -35,5 +37,6 @@ export interface IUpdateExpense {
   description?: string;
   createdAt?: Date;
   userClerkId?: string;
+  repeatExpense?: boolean;
 }
 
