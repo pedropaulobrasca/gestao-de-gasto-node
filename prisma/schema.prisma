@@ -63,7 +63,7 @@ model VerificationRequest {
 }
 
 model Expense {
-  id            Int      @id @default(autoincrement())
+  id            String   @id @default(cuid())
   userId        String
   paid          Boolean  @default(false)
   expense       String

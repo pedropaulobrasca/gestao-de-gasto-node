@@ -4,7 +4,7 @@ import prisma from "../prisma";
 
 export default async function CreateExpense(data: Expense): Promise<Expense> {
   try {
-    if (data.userClerkId === "") {
+    if (data.userId === "") {
       throw new Error("User Clerk Id is required");
     }
 
@@ -21,12 +21,12 @@ export default async function CreateExpense(data: Expense): Promise<Expense> {
         installments: data.installments || 0,
         totalValue: data.totalValue,
         description: data.description,
-        userClerkId: data.userClerkId || "",
+        userId: data.userId || "",
         repeatExpense: data.repeatExpense || false,
       },
     });
 
-    return createdExpense as Expense;
+    return createdExpense;
   } catch (error) {
     throw new Error(String(error));
   }

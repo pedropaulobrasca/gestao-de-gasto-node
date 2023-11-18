@@ -1,5 +1,5 @@
 export type Expense = {
-  id?: number;
+  id?: string;
   paid: boolean;
   expense: string;
   monthlyValue?: number;
@@ -8,12 +8,12 @@ export type Expense = {
   totalValue: number;
   description?: string;
   createdAt?: Date;
-  userClerkId?: string;
+  userId?: string;
   repeatExpense?: boolean;
 };
 
 export interface IExpense {
-  id?: number;
+  id?: string;
   paid: boolean;
   expense: string;
   monthlyValue?: number;
@@ -22,12 +22,12 @@ export interface IExpense {
   totalValue: number;
   description?: string;
   createdAt?: Date;
-  userClerkId?: string;
+  userId?: string;
   repeatExpense?: boolean;
 }
 
 export interface IUpdateExpense {
-  id?: number;
+  id?: string;
   paid?: boolean;
   expense?: string;
   monthlyValue?: number;
@@ -36,7 +36,7 @@ export interface IUpdateExpense {
   totalValue?: number;
   description?: string;
   createdAt?: Date;
-  userClerkId?: string;
+  userId?: string;
   repeatExpense?: boolean;
 }
 
