@@ -26,7 +26,7 @@ export default async function CreateExpense(data: Expense): Promise<Expense> {
       },
     });
 
-    return createdExpense;
+    return createdExpense as Expense;
   } catch (error) {
     throw new Error(String(error));
   }

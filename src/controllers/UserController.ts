@@ -12,7 +12,7 @@ class UserController {
     try {
       const { id } = req.params;
 
-      const user = await GetExpenseById(Number(id));
+      const user = await GetExpenseById(id);
 
       if (!user) {
         throw new Error("User not found");

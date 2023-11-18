@@ -2,7 +2,7 @@ import prisma from "../prisma";
 import { IUpdateExpense } from "../../types/expense";
 
 export default async function UpdateExpense(
-  id: number,
+  id: string,
   data: IUpdateExpense
 ): Promise<void> {
   await prisma.expense.update({
