@@ -1,7 +1,10 @@
 import { Router } from "express";
 import ExpenseController from "../controllers/ExpenseController";
+import UserController from "../controllers/UserController";
 
 const router = Router();
+
+router.get("/user/:id", UserController.getUser);
 
 router.get("/expense", ExpenseController.index);
 router.post("/expense", ExpenseController.create);
