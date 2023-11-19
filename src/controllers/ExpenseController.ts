@@ -34,7 +34,7 @@ class ExpenseController {
         installments: req.body.installments,
         totalValue: req.body.totalValue,
         description: req.body.description,
-        userClerkId: req.body.userClerkId,
+        userId: req.body.userId,
         repeatExpense: req.body.repeatExpense,
       };
 
@@ -50,7 +50,7 @@ class ExpenseController {
     try {
       const { id } = req.params;
 
-      const expense = await GetExpenseById(Number(id));
+      const expense = await GetExpenseById(id);
 
       if (!expense) {
         throw new Error("Expense not found");
@@ -66,10 +66,10 @@ class ExpenseController {
         totalValue: req.body.totalValue,
         description: req.body.description,
         createdAt: expense.createdAt,
-        userClerkId: req.body.userClerkId,
+        userId: req.body.userId,
       };
 
-      await UpdateExpense(Number(id), expenseData);
+      await UpdateExpense(id, expenseData);
 
       res.status(200).json({ message: "Expense updated" });
     } catch (error) {
@@ -81,7 +81,7 @@ class ExpenseController {
     try {
       const { id } = req.params;
 
-      await DeleteExpense(Number(id));
+      await DeleteExpense(id);
 
       res.status(200).json({ message: "Expense deleted" });
     } catch (error) {
