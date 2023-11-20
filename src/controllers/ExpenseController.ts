@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import GetAllExpensesByUserClerkId from "../services/expense/GetAllExpensesByUserClerkId";
+import GetAllExpensesByUserId from "../services/expense/GetAllExpensesByUserClerkId";
 import { IExpense, IUpdateExpense } from "../types/expense";
 import CreateExpense from "../services/expense/CreateExpense";
 import DeleteExpense from "../services/expense/DeleteExpense";
@@ -10,9 +10,9 @@ import GetExpenseById from "../services/expense/GetExpenseById";
 class ExpenseController {
   async index(req: Request, res: Response) {
     try {
-      const { userClerkId } = req.query;
+      const { userId } = req.query;
 
-      const expenses = await GetAllExpensesByUserClerkId(userClerkId as string);
+      const expenses = await GetAllExpensesByUserId(userId as string);
 
       if (!expenses) {
         throw new Error("Expenses not found");
