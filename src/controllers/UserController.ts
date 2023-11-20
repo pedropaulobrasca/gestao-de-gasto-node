@@ -8,6 +8,18 @@ import { Expense } from "@prisma/client";
 import GetExpenseById from "../services/expense/GetExpenseById";
 
 class UserController {
+  async create(req: Request, res: Response) {
+    try {
+      const { name, email, password } = req.body;
+
+      // const user = await CreateExpense({  });
+
+      res.status(201).json({ user: {} });
+    } catch (error) {
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+
   async getUser(req: Request, res: Response) {
     try {
       const { id } = req.params;

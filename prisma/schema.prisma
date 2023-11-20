@@ -13,7 +13,7 @@ datasource db {
 
 model User {
   id            String    @id @default(cuid())
-  providerType  String
+  providerType  String?
   name          String?
   email         String?   @unique
   emailVerified DateTime?
